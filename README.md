@@ -1,34 +1,43 @@
-# FilmInsight
+# FilmInsight 🎥✨
 
-**FilmInsight** è un sistema di raccomandazione di film basato sulla conoscenza, progettato per fornire suggerimenti altamente personalizzati sfruttando dati strutturati e tecniche avanzate. Combina informazioni provenienti dal dataset MovieLens Small con metadati arricchiti da DBpedia tramite query SPARQL. Il sistema utilizza algoritmi di *Multi-Armed Bandit (MAB)* per bilanciare esplorazione e sfruttamento, garantendo suggerimenti sempre aggiornati e rilevanti.
-
----
-
-## 🌟 Funzionalità principali
-- **Estrazione di conoscenze da DBpedia**: Recupera informazioni avanzate sui film, come cast, registi, temi e altro ancora.
-- **Sistema di raccomandazione basato su conoscenza**: Suggerisce film in base alle preferenze dell'utente e alle caratteristiche dei film.
-- **Bilanciamento Exploration vs Exploitation**: Integra algoritmi MAB come *Epsilon-Greedy* e *UCB* per ottimizzare le raccomandazioni.
-- **Valutazione rigorosa**: Metriche standard per garantire accuratezza e rilevanza nelle raccomandazioni.
+**FilmInsight** è un sistema avanzato di raccomandazione di film basato sulla conoscenza, pensato per offrire suggerimenti personalizzati sfruttando non solo le preferenze degli utenti, ma anche informazioni arricchite sui film provenienti da fonti esterne. Attraverso l'integrazione di dati da DBpedia e l'uso di algoritmi di *Multi-Armed Bandit (MAB)*, FilmInsight ottimizza continuamente l'esperienza dell'utente, bilanciando esplorazione e sfruttamento.
 
 ---
 
-## 🗂️ Struttura del progetto
+## 🔍 Perché FilmInsight?
+L'obiettivo principale di FilmInsight è superare i limiti dei tradizionali sistemi di raccomandazione basati esclusivamente su statistiche o valutazioni degli utenti. Questo sistema:
+- Arricchisce i dati con informazioni semantiche (es. registi, trame, temi) da **DBpedia**.
+- Offre raccomandazioni non banali, andando oltre i semplici gusti "popolari".
+- Adotta approcci di *Reinforcement Learning* per adattarsi dinamicamente agli utenti.
+
+---
+
+## 🚀 Caratteristiche principali
+1. **Dati arricchiti**: FilmInsight sfrutta DBpedia per aggiungere metadati sui film (come cast, generi e curiosità), rendendo le raccomandazioni più intelligenti.
+2. **Approccio innovativo**: Usa tecniche di *Multi-Armed Bandit* per migliorare continuamente i suggerimenti, esplorando nuovi film senza sacrificare la qualità delle raccomandazioni.
+3. **Analisi dettagliata**: Include strumenti per analizzare le performance del sistema attraverso metriche consolidate nel campo della raccomandazione.
+
+---
+
+## 🛠️ Struttura del progetto
+
 - **`data/`**: 
-  - Contiene i dataset originali (`raw/`), i file processati (`processed/`) e i risultati delle query DBpedia (`dbpedia/`).
-- **`src/`**: 
-  - Include gli script principali per la gestione dei dati, le query SPARQL e l'implementazione del recommender system.
-- **`notebooks/`**: 
-  - Jupyter Notebook per analisi preliminari, esplorazioni ed esperimenti.
-- **`tests/`**: 
-  - Contiene test unitari per verificare il corretto funzionamento del codice.
-- **`docs/`**: 
-  - Documentazione aggiuntiva, come architettura del sistema e riferimenti bibliografici.
+  - Contiene i file di dati grezzi (`raw/`), i dataset processati (`processed/`) e una cache dei risultati delle query a DBpedia (`dbpedia/`).
+  
+- **`src/`**:
+  - **`data_processing.py`**: Pulizia e pre-elaborazione del dataset MovieLens.
+  - **`dbpedia_queries.py`**: Interfaccia per estrarre informazioni da DBpedia.
+  - **`recommender.py`**: Il cuore del sistema di raccomandazione.
+  - **`evaluation.py`**: Strumenti per la valutazione delle performance.
+
+- **`notebooks/`**: Contiene analisi esplorative e prototipi in Jupyter Notebook.
+
+- **`tests/`**: Suite di test per verificare la correttezza del codice.
 
 ---
 
-## 🔧 Installazione
-
-1. **Clona il repository**:
+## 📋 Requisiti
+1. **Python 3.7+**
+2. **Librerie richieste**: Tutte le dipendenze sono elencate nel file `requirements.txt`. Installa con:
    ```bash
-   git clone <URL-del-repo>
-   cd FilmInsight
+   pip install -r requirements.txt
